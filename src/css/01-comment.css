@@ -1,0 +1,13 @@
+@charset "UTF-8";
+body {
+  color: #121212;
+  /* 임시로 재경 색상 지정 - yellow */
+  background: yellow;
+  /* 이 주석은 압축(compressed) 모드에서도 출력됩니다. */
+}
+
+p .sans {
+  font: SpoqaHanSans, Helvetica, Verdana, sans-serif;
+}
+
+/*# sourceMappingURL=01-comment.css.map */

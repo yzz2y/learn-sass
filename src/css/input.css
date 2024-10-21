@@ -1,0 +1,28 @@
+.alert {
+  border: 1px solid rgba(191, 34, 67, 0.7);
+}
+
+:root {
+  --primary-color: red;
+}
+
+.rule-1 {
+  color: #05d156;
+  background: var(--primary-color);
+  padding: 2rem;
+}
+
+:root {
+  --primary-color: blue;
+}
+
+:root {
+  --primary-color: yellow;
+}
+
+.rule-2 {
+  color: #bf2243;
+  background: var(--primary-color);
+}
+
+/*# sourceMappingURL=input.css.map */
