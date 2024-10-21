@@ -1,9 +1,12 @@
 {
   "scripts": {
+    "dev": "run-p serve watch",
     "serve": "live-server --port=8090 --host=localhost",
-    "sass": "sass src/syntax/input.scss src/syntax/output.css",
+    "sass": "sass src/syntax:src/css",
     "watch": "npm run sass -- --watch",
-    "update": "npm run watch -- --update"
+    "update": "npm run watch -- --update",
+    "build": "npm run sass -- --style compressed --no-source-map",
+    "remove": "rm -rf ./src/css"
   },
   "devDependencies": {
     "live-server": "^1.2.2",
