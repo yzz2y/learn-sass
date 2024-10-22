@@ -1,0 +1,12 @@
+.error, .error-400 {
+  color: #bf2243;
+  font-size: 0.075rem;
+  font-style: italic;
+  background-color: rgb(210, 210, 125);
+}
+
+.error-400 {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=04-extend.css.map */

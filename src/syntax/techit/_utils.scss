@@ -1,0 +1,7 @@
+$spacing-1: 10px;
+$spacing-2: 20px;
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}

@@ -1,0 +1,59 @@
+$light-color: #ececea;
+$dark-color: #2e2e2d;
+
+.button {
+  padding: 0.6em 0.9em;
+  background: $light-color;
+  color: $dark-color;
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  .dark & {
+    background: $dark-color;
+    color: $light-color;
+  }
+}
+
+// BEM 형식
+.tabMenu {
+  max-width: 640px;
+  width: 90%;
+  margin: 40px auto;
+  &__item {
+    display: block;
+  }
+  &--link {
+    display: block;
+  }
+
+  @at-root .button--link {
+    border: 0;
+    padding: 0.5rem;
+    background: transparent;
+    color: currentColor;
+  }
+}
+
+@supports (display: grid) {
+  .page {
+    display: grid;
+
+    @at-root (without: supports) {
+      display: block;
+    }
+
+    @at-root .article {
+      display: grid;
+
+      @at-root (without: supports) {
+        display: block;
+      }
+
+      @at-root (with: rule) {
+        font-size: 1.2em;
+      }
+    }
+  }
+}

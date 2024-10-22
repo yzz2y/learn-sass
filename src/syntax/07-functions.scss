@@ -1,0 +1,70 @@
+@use "sass:meta";
+@use "sass:math";
+
+$nothing: null;
+$num: 101;
+$unit: 180px;
+$spoqa: "Spoqa Han Sans Neo";
+$pretendard: Pretendard;
+$hex: #f94e07;
+$keyword: purple;
+$color-function: hsl(18, 95%, 50%);
+$yes: true;
+$no: false;
+$units: 20px 10px 0;
+$font-families: Pretendard, Helvetica, sans-serif;
+$square-bracket: [Verdana sans-serif];
+$theme: (
+  light: (
+    forground: #121916,
+    background: #e7e6e7,
+  ),
+  dark: (
+    background: #121916,
+    forground: #e7e6e7,
+  ),
+);
+
+@function getUnit($value) {
+  @return math.unit($value);
+}
+
+$value-1: 10px;
+$value-2: 5;
+
+.container {
+  animation-delay: 9s + 21s;
+  // width: $value-1 + $value-2;
+  // width: calc($value-1 - $value-2);
+  // width: $value-1 * $value-2;
+  width: math.div($value-1, $value-2);
+}
+
+@debug $value-1 * $value-2;
+@debug "Helvetica" + " " + "Neue"; // 'Helvetica Neue'
+
+$word1: "Helvetica";
+$word2: "Neue";
+$word3: sans;
+$word4: serif;
+
+@debug (5px 7px 10px) != (5px, 7px, 10px); // true
+
+// 단위를 제거하는 함수
+// 나눗셈 연산  ( 10px / 5px  = > 2 )
+@function removeUnit($value) {
+  @return math.div($value, ($value * 0 + 1));
+}
+
+@function rem($value, $base: 16) {
+  @return math.div(removeUnit($value), $base) * 1rem;
+}
+
+@function em($value, $base) {
+  @return math.div(removeUnit($value), removeUnit($base)) * 1em;
+}
+
+.box {
+  font-family: "#{$word1 $word2}", #{$word3 - $word4};
+  font-size: em(24px, 14px);
+}

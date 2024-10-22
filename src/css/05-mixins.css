@@ -1,0 +1,41 @@
+.box {
+  margin: 10px;
+}
+@media (min-width: 768px) {
+  .box {
+    margin: 15px;
+  }
+}
+
+div {
+  display: flex;
+  flex-flow: column;
+}
+div:hover {
+  background-color: darkblue;
+  color: white;
+  font-size: 1.75rem;
+}
+
+p:hover {
+  background-color: darkblue;
+  color: white;
+}
+
+ul {
+  background-color: yellow;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ol {
+  font-size: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 200px;
+  inline-size: 200px;
+}
+
+/*# sourceMappingURL=05-mixins.css.map */

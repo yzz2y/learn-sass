@@ -1,0 +1,90 @@
+@mixin resetList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// 100px의 가로 크기를 가지는 믹스인
+@mixin width($width) {
+  width: $width;
+  inline-size: $width;
+}
+
+@mixin flexbox($direction, $justify: null, $align: null, $wrap: null, $content: null) {
+  display: flex;
+  // flex-direction: $direction;
+  // flex-wrap: $wrap;
+  flex-flow: $direction $wrap;
+  justify-content: $justify;
+  align-items: $align;
+  align-content: $content;
+}
+
+@mixin hover() {
+  &:hover {
+    background-color: darkblue;
+    color: white;
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin errorMessage {
+  @error "유효하지 않은 인자를 사용했습니다.";
+}
+
+@mixin mq($type) {
+  @if $type == "mobile" {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $type == "desktop" {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else {
+    @include errorMessage;
+  }
+}
+
+.box {
+  margin: 10px;
+
+  @include mq("desktop") {
+    margin: 15px;
+  }
+}
+
+div {
+  @include flexbox(column);
+  @include hover {
+    font-size: 1.75rem;
+  }
+}
+
+p:hover {
+  background-color: darkblue;
+  color: white;
+}
+
+ul {
+  background-color: yellow;
+  @include resetList;
+}
+
+ol {
+  font-size: 1.25rem;
+  @include resetList;
+  @include width(200px);
+}
